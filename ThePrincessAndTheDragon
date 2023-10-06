@@ -1,0 +1,110 @@
+a c# program that tells an adventure game story about the heroic princess and her trusty side kick dragon companion as they 
+battle the evil doers who are harming the villagers of the kingdom. Use many objects and demonstrate user input, if then, case, loops, method call interactions between objects
+ 
+
+namespace AdventureGame
+{
+    public class HeroicPrincess
+    {
+        public string Name { get; set; }
+
+        public void Speak(string message)
+        {
+            Console.WriteLine($"{Name}: {message}");
+        }
+    }
+
+    public class Dragon
+    {
+        public string Name { get; set; }
+        
+        public void Roar()
+        {
+            Console.WriteLine($"{Name} roars mightily!");
+        }
+
+        public void Speak(string message)
+        {
+            Console.WriteLine($"{Name}: {message}");
+        }
+    }
+
+    public class Villager
+    {
+        public string Name { get; set; }
+
+        public void Speak(string message)
+        {
+            Console.WriteLine($"Villager {Name}: {message}");
+        }
+    }
+
+    public class EvilDoer
+    {
+        public void Action()
+        {
+            Console.WriteLine("The evil doer carries out a wicked plan against the villagers!");
+        }
+    }
+
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            HeroicPrincess princess = new HeroicPrincess { Name = "Aria" };
+            Dragon dragon = new Dragon { Name = "Drake" };
+            Villager villager = new Villager { Name = "Ella" };
+            EvilDoer evilDoer = new EvilDoer();
+
+            Console.WriteLine("Adventure Game: The Heroic Princess and Her Dragon");
+            Console.WriteLine("---------------------------------------------------");
+
+            villager.Speak("Help us! The evil doers are harming our village!");
+            princess.Speak("Fear not! We will protect you.");
+
+            Console.WriteLine("What should we do?");
+            Console.WriteLine("1. Send the dragon to scare the evil doers.");
+            Console.WriteLine("2. Confront the evil doers directly.");
+            Console.Write("Enter your choice (1/2): ");
+            
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    dragon.Roar();
+                    dragon.Speak("I will scare them away!");
+                    break;
+                
+                case "2":
+                    princess.Speak("We shall confront them directly and end their wickedness!");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    return;
+            }
+
+            Console.WriteLine("While the princess and dragon were strategizing, the evil doer made another move!");
+            evilDoer.Action();
+
+            Console.WriteLine("How many times should the dragon roar to intimidate the evil doer? (Enter a number): ");
+            int roars = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < roars; i++)
+            {
+                dragon.Roar();
+            }
+
+            Console.WriteLine("The combined might of the princess and her dragon successfully repelled the evil doer, bringing peace to the kingdom!");
+        }
+    }
+}
+In this adventure game:
+
+The player meets the HeroicPrincess, her Dragon sidekick, a Villager, and an EvilDoer.
+The Villager informs the princess of the EvilDoer's actions.
+The player chooses how to confront the EvilDoer: either by sending the dragon or confronting them directly.
+The EvilDoer makes a move, and the player decides how many times the dragon should roar to intimidate the EvilDoer.
+Based on the player's choices, the story unfolds and concludes with the triumph of good over evil.
+The code demonstrates object interactions, user input, if-then, switch-case, and loops.
